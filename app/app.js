@@ -1,0 +1,27 @@
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+
+mongoose.connect(process.env.DB_URI, { useNewUrlParser: true });
+mongoose.connection.on("error", function(err) {
+    console.error("MongoDB connection error: " + err);
+    process.exit(-1);
+});
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+var router = require("./routes/v1/");
+app.use("/api/v1/", router);
+
+app.get("/", function(req, res) {
+    res.redirect(
+        301,
+        "https://github.com/eai04191/dlsite-owned-item-showcase-db"
+    );
+});
+
+const port = process.env.PORT || 3000;
+app.listen(port);
+console.log("listen on port " + port);
