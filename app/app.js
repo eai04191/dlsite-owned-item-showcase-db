@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const helmet = require("helmet");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
@@ -9,6 +11,8 @@ mongoose.connection.on("error", function(err) {
     process.exit(-1);
 });
 
+app.use(helmet());
+app.use(cors());
 app.use(bodyParser.urlencoded({ limit: "12mb", extended: true }));
 app.use(bodyParser.json());
 
