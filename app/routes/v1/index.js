@@ -10,7 +10,7 @@ router.post("/items", function(req, res) {
         return;
     }
 
-    if (req.body.name || req.body.data) {
+    if (!req.body.name || !req.body.data) {
         res.status(500).json({
             message: "missing parameters"
         });
