@@ -12,7 +12,7 @@ mongoose.connection.on("error", function(err) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var router = require("./routes/v1/");
+const router = require("./routes/v1/");
 app.use("/api/v1/", router);
 
 app.get("/", function(req, res) {
