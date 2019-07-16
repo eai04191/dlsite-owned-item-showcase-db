@@ -6,7 +6,7 @@ var ItemSchema = new Schema({
         name: String,
         date: { type: Date, default: Date.now }
     },
-    data: String
+    data: Object
 });
 
 module.exports = mongoose.model("Item", ItemSchema);

@@ -9,7 +9,7 @@ mongoose.connection.on("error", function(err) {
     process.exit(-1);
 });
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ limit: "12mb", extended: true }));
 app.use(bodyParser.json());
 
 const router = require("./routes/v1/");

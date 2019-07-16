@@ -18,7 +18,15 @@ router.post("/items", function(req, res) {
     }
 
     Item.meta.name = req.body.name;
-    Item.data = req.body.data;
+
+    try {
+        Item.data = JSON.parse(req.body.data);
+    } catch (e) {
+        res.status(500).json({
+            message: "invalid data"
+        });
+        return;
+    }
 
     Item.save(function(err, item) {
         if (err) {
