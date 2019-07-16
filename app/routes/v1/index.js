@@ -5,7 +5,11 @@ const ItemModel = require("../../models/item.js");
 router.post("/items", function(req, res) {
     const Item = new ItemModel();
 
-    if (!req.get("Referrer").startsWith("https://dois.netlify.com")) {
+    if (
+        !req.get("Referrer").startsWith("https://dois.netlify.com") &&
+        !req.get("Referrer").startsWith("https://localhost") &&
+        !req.get("Referrer").startsWith("http://localhost")
+    ) {
         res.status(500).send();
         return;
     }
