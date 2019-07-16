@@ -1,0 +1,8 @@
+{
+    "version": 2,
+    "builds": [{ "src": "app/app.js", "use": "@now/node" }],
+    "routes": [{ "src": "/(.*)", "dest": "app/app.js" }],
+    "env": {
+        "DB_URI": "@mongo_atras_dois_uri"
+    }
+}
