@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ limit: "12mb", extended: true }));
 app.use(bodyParser.json());
 
 const router = require("./routes/v1/");
-app.use("/api/v1/", router);
+app.use("/v1/", router);
 
 app.get("/", function(req, res) {
     res.redirect(
