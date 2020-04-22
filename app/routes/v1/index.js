@@ -7,7 +7,7 @@ router.post("/items", function(req, res) {
 
     if (
         req.get("Referrer") === undefined ||
-        (!req.get("Referrer").startsWith("https://dois.netlify.com") &&
+        (!req.get("Referrer").startsWith("https://dois.netlify.app") &&
             !req.get("Referrer").startsWith("https://play.dlsite.com") &&
             !req.get("Referrer").startsWith("https://localhost") &&
             !req.get("Referrer").startsWith("http://localhost"))
